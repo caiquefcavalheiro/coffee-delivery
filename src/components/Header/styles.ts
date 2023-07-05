@@ -39,6 +39,7 @@ export const RightIconContainer = styled.div`
   padding: 0.5rem;
   background-color: ${(props) => props.theme["brand-yellow-light"]};
   border-radius: 8px;
+  cursor: pointer;
 
   svg {
     color: ${(props) => props.theme["brand-yellow-dark"]};

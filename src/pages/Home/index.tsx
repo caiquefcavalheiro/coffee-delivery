@@ -1,18 +1,21 @@
 import { CoffeeCard } from "./components/CoffeeContainer";
 import { HomeIntro } from "./components/HomeIntro";
+import { CoffeeList, CoffeeMain } from "./styles";
 
-import { CoffeeList } from "./styles";
+import { coffees } from "../../database/coffees";
 
 export function Home() {
   return (
     <div>
       <HomeIntro />
-      <div>
+      <CoffeeMain>
         <h3>Nossos cafés</h3>
         <CoffeeList>
-          <CoffeeCard />
+          {coffees.map((coffee) => {
+            return <CoffeeCard key={coffee.id} coffee={coffee} />;
+          })}
         </CoffeeList>
-      </div>
+      </CoffeeMain>
     </div>
   );
 }

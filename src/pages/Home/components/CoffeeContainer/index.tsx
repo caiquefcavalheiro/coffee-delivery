@@ -8,20 +8,38 @@ import {
   CoffeeTypes,
 } from "./styles";
 
-import americano from "../../../../assets/americano.png";
+import { Coffee } from "../../../../database/coffees";
 
-export function CoffeeCard() {
+interface CoffeeCardProps {
+  coffee: Coffee;
+}
+
+export function CoffeeCard({ coffee }: CoffeeCardProps) {
+  const { title, price, image, content, categories } = coffee;
+
+  const imagem = `./src/assets/${image}.png`;
+
+  const priceConvert = price
+    .toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    })
+    .replace("R$", "");
+
   return (
     <CoffeeContainer>
-      <img src={americano} alt="" />
+      <img src={imagem} alt="" />
       <CoffeeTypes>
-        <p>Tradicional</p>
+        {categories.map((category) => {
+          return <p key={category}>{category}</p>;
+        })}
       </CoffeeTypes>
-      <h4>Expresso Tradicional</h4>
-      <p>O tradicional café feito com água quente e grãos moídos</p>
+      <h4>{title}</h4>
+      <p>{content}</p>
       <CoffeeInfo>
         <p>
-          <span>R$ </span>9,90
+          <span>R$ </span>
+          {priceConvert}
         </p>
         <CoffeeAsideInfo>
           <CoffeeQuantity>

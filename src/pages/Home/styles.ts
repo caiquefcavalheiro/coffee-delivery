@@ -2,18 +2,16 @@ import styled from "styled-components";
 
 export const CoffeeList = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 10rem;
+`;
 
-  h4 {
-    font-size: 1.25rem;
-    font-weight: bold;
+export const CoffeeMain = styled.div`
+  h3 {
     font-family: "Baloo 2";
-    text-align: center;
-    color: ${(props) => props.theme["base-subtitle"]};
-  }
-
-  p {
-    font-size: 0.875rem;
-    text-align: center;
-    color: ${(props) => props.theme["base-label"]};
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 3.5rem;
   }
 `;

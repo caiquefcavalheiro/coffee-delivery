@@ -14,6 +14,20 @@ export const CoffeeContainer = styled.div`
   img {
     margin-top: -2.5rem;
   }
+
+  h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-family: "Baloo 2";
+    text-align: center;
+    color: ${(props) => props.theme["base-subtitle"]};
+  }
+
+  & > p {
+    font-size: 0.875rem;
+    text-align: center;
+    color: ${(props) => props.theme["base-label"]};
+  }
 `;
 
 export const CoffeeTypes = styled.div`

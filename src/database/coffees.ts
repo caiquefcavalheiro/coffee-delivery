@@ -1,4 +1,4 @@
-interface Coffee {
+export interface Coffee {
   id: number;
   title: string;
   content: string;
@@ -86,7 +86,7 @@ export const coffees: Coffee[] = [
     content: "Café expresso com calda de chocolate, pouco leite e espuma",
     price: 9.9,
     categories: ["tradicional", "com leite"],
-    image: "mocaccino",
+    image: "mochaccino",
   },
   {
     id: 11,
