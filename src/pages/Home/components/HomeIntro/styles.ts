@@ -46,7 +46,7 @@ const ICON_WIDTH = {
 };
 
 interface IconContainerProps {
-  bgcolor: keyof typeof ICON_BACKGROUND_COLOR;
+  $bgcolor: keyof typeof ICON_BACKGROUND_COLOR;
   width?: keyof typeof ICON_WIDTH;
 }
 
@@ -60,7 +60,7 @@ export const IconContainer = styled.div<IconContainerProps>`
   div {
     display: flex;
     align-items: center;
-    background-color: ${(props) => props.theme[props.bgcolor]};
+    background-color: ${(props) => props.theme[props.$bgcolor]};
     padding: 0.5rem;
     border-radius: 999px;
   }

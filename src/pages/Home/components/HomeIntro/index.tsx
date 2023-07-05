@@ -17,25 +17,25 @@ export function HomeIntro() {
           hora
         </h4>
         <InfoContainer>
-          <IconContainer bgcolor="brand-yellow-dark">
+          <IconContainer $bgcolor="brand-yellow-dark">
             <div>
               <ShoppingCart size={16} />
             </div>
             <p>Compra simples e segura</p>
           </IconContainer>
-          <IconContainer bgcolor="base-text" width="294">
+          <IconContainer $bgcolor="base-text" width="294">
             <div>
               <Package size={16} />
             </div>
             <p>Embalagem mantém o café intacto</p>
           </IconContainer>
-          <IconContainer bgcolor="brand-yellow">
+          <IconContainer $bgcolor="brand-yellow">
             <div>
               <Timer size={16} />
             </div>
             <p>Entrega rápida e rastreada</p>
           </IconContainer>
-          <IconContainer bgcolor="brand-purple" width="294">
+          <IconContainer $bgcolor="brand-purple" width="294">
             <div>
               <Coffee size={16} />
             </div>
