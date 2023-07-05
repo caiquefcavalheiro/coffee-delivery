@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const HeaderContainer = styled.header`
-  padding: 2rem 10rem;
+  padding: 2rem 0;
 
   display: flex;
   justify-content: space-between;
@@ -39,6 +39,7 @@ export const RightIconContainer = styled.div`
   padding: 0.5rem;
   background-color: ${(props) => props.theme["brand-yellow-light"]};
   border-radius: 8px;
+
   svg {
     color: ${(props) => props.theme["brand-yellow-dark"]};
   }
