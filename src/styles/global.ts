@@ -7,6 +7,11 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box
 }
 
+:focus{
+    outline:0;
+    box-shadow: 0 0 0 2px ${(props) => props.theme["brand-yellow-light"]}
+}
+
 body{
     background: ${(props) => props.theme["base-background"]}
 }
