@@ -6,6 +6,7 @@ interface CoffeeContextType {
   cartTotal: number;
   addCoffeeToCart: (coffee: Coffee) => void;
   removeCoffeeFromCart: (coffee: Coffee) => void;
+  removeCoffeeQuantityFromCart: (coffee: Coffee) => void;
   finalizeOrder: () => void;
 }
 
@@ -57,7 +58,7 @@ export function CoffeeContextProvider({
     }
   }
 
-  function removeCoffeeFromCart(removeCoffee: Coffee) {
+  function removeCoffeeQuantityFromCart(removeCoffee: Coffee) {
     const findCoffee = userCart.find((coffee) => coffee.id === removeCoffee.id);
     if (findCoffee) {
       if (findCoffee.quantity < 1) {
@@ -81,6 +82,12 @@ export function CoffeeContextProvider({
     localStorage.removeItem("@coffeeDelivery:coffees-state.1.0.0");
   }
 
+  function removeCoffeeFromCart(removeCoffee: Coffee) {
+    setUserCart((state) =>
+      state.filter((coffee) => coffee.id !== removeCoffee.id)
+    );
+  }
+
   return (
     <CoffeeContext.Provider
       value={{
@@ -88,6 +95,7 @@ export function CoffeeContextProvider({
         cartTotal,
         addCoffeeToCart,
         removeCoffeeFromCart,
+        removeCoffeeQuantityFromCart,
         finalizeOrder,
       }}>
       {children}

@@ -20,7 +20,8 @@ interface CoffeeCardProps {
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
   const { title, price, image, content, categories, quantity } = coffee;
 
-  const { addCoffeeToCart, removeCoffeeFromCart } = useContext(CoffeeContext);
+  const { addCoffeeToCart, removeCoffeeQuantityFromCart } =
+    useContext(CoffeeContext);
 
   const imagem = `./src/assets/${image}.png`;
 
@@ -48,7 +49,10 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
         </p>
         <CoffeeAsideInfo>
           <CoffeeQuantity>
-            <Minus size={14} onClick={() => removeCoffeeFromCart(coffee)} />
+            <Minus
+              size={14}
+              onClick={() => removeCoffeeQuantityFromCart(coffee)}
+            />
             <span>{quantity}</span>
             <Plus size={14} onClick={() => addCoffeeToCart(coffee)} />
           </CoffeeQuantity>
