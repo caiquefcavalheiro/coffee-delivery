@@ -5,6 +5,7 @@ export interface Coffee {
   price: number;
   categories: string[];
   image: string;
+  quantity: number;
 }
 
 export const coffees: Coffee[] = [
@@ -15,6 +16,7 @@ export const coffees: Coffee[] = [
     price: 9.9,
     categories: ["tradicional"],
     image: "expresso",
+    quantity: 0,
   },
   {
     id: 2,
@@ -23,6 +25,7 @@ export const coffees: Coffee[] = [
     categories: ["tradicional"],
     price: 9.9,
     image: "americano",
+    quantity: 0,
   },
   {
     id: 3,
@@ -31,6 +34,7 @@ export const coffees: Coffee[] = [
     categories: ["tradicional"],
     price: 9.9,
     image: "expresso-cremoso",
+    quantity: 0,
   },
   {
     id: 4,
@@ -39,6 +43,7 @@ export const coffees: Coffee[] = [
     categories: ["tradicional", "com leite"],
     price: 9.9,
     image: "cafe-com-leite",
+    quantity: 0,
   },
   {
     id: 5,
@@ -47,6 +52,7 @@ export const coffees: Coffee[] = [
     categories: ["tradicional", "gelado"],
     price: 9.9,
     image: "cafe-gelado",
+    quantity: 0,
   },
   {
     id: 6,
@@ -55,6 +61,7 @@ export const coffees: Coffee[] = [
     categories: ["tradicional", "com leite"],
     price: 9.9,
     image: "latte",
+    quantity: 0,
   },
   {
     id: 7,
@@ -63,6 +70,7 @@ export const coffees: Coffee[] = [
     categories: ["tradicional", "com leite"],
     price: 9.9,
     image: "capuccino",
+    quantity: 0,
   },
   {
     id: 8,
@@ -71,6 +79,7 @@ export const coffees: Coffee[] = [
     categories: ["tradicional", "com leite"],
     price: 9.9,
     image: "macchiato",
+    quantity: 0,
   },
   {
     id: 9,
@@ -79,6 +88,7 @@ export const coffees: Coffee[] = [
     categories: ["especial", "com leite"],
     price: 9.9,
     image: "chocolate-quente",
+    quantity: 0,
   },
   {
     id: 10,
@@ -87,6 +97,7 @@ export const coffees: Coffee[] = [
     price: 9.9,
     categories: ["tradicional", "com leite"],
     image: "mochaccino",
+    quantity: 0,
   },
   {
     id: 11,
@@ -95,6 +106,7 @@ export const coffees: Coffee[] = [
     categories: ["especial", "alcoólico", "gelado"],
     price: 9.9,
     image: "cubano",
+    quantity: 0,
   },
   {
     id: 12,
@@ -103,6 +115,7 @@ export const coffees: Coffee[] = [
     categories: ["especial"],
     price: 9.9,
     image: "havaiano",
+    quantity: 0,
   },
   {
     id: 13,
@@ -111,6 +124,7 @@ export const coffees: Coffee[] = [
     categories: ["especial"],
     price: 9.9,
     image: "arabe",
+    quantity: 0,
   },
   {
     id: 14,
@@ -119,5 +133,6 @@ export const coffees: Coffee[] = [
     categories: ["especial", "alcoólico"],
     price: 9.9,
     image: "irlandes",
+    quantity: 0,
   },
 ];

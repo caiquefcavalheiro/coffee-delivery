@@ -1,4 +1,4 @@
-import { CoffeeCard } from "./components/CoffeeContainer";
+import { CoffeeCard } from "./components/CoffeeCard";
 import { HomeIntro } from "./components/HomeIntro";
 import { CoffeeList, CoffeeMain } from "./styles";
 

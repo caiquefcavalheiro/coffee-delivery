@@ -94,10 +94,10 @@ export const CoffeeCart = styled.div`
   background: ${(props) => props.theme["brand-purple-dark"]};
   padding: 0.5rem;
   border-radius: 6px;
+  cursor: pointer;
 
   svg {
     color: ${(props) => props.theme["base-card"]};
-    cursor: pointer;
   }
 
   &:hover {
