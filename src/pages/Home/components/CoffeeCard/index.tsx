@@ -11,6 +11,7 @@ import {
 import { Coffee } from "../../../../database/coffees";
 import { useContext } from "react";
 import { CoffeeContext } from "../../../../context/CoffeeContext";
+import { NavLink } from "react-router-dom";
 
 interface CoffeeCardProps {
   coffee: Coffee;
@@ -51,9 +52,11 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
             <span>{quantity}</span>
             <Plus size={14} onClick={() => addCoffeeToCart(coffee)} />
           </CoffeeQuantity>
-          <CoffeeCart>
-            <ShoppingCart size={22} />
-          </CoffeeCart>
+          <NavLink to="/checkout" title="checkout">
+            <CoffeeCart>
+              <ShoppingCart size={22} />
+            </CoffeeCart>
+          </NavLink>
         </CoffeeAsideInfo>
       </CoffeeInfo>
     </CoffeeContainer>

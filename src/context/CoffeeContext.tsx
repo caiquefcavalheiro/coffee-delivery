@@ -3,6 +3,7 @@ import { Coffee, coffees } from "../database/coffees";
 
 interface CoffeeContextType {
   userCart: Coffee[];
+  cartTotal: number;
   addCoffeeToCart: (coffee: Coffee) => void;
   removeCoffeeFromCart: (coffee: Coffee) => void;
   finalizeOrder: () => void;
@@ -27,6 +28,10 @@ export function CoffeeContextProvider({
 
     return coffees;
   });
+  const cartTotal = userCart.reduce(
+    (acc, coffee) => (acc += coffee.quantity),
+    0
+  );
 
   useEffect(() => {
     localStorage.setItem(
@@ -80,6 +85,7 @@ export function CoffeeContextProvider({
     <CoffeeContext.Provider
       value={{
         userCart,
+        cartTotal,
         addCoffeeToCart,
         removeCoffeeFromCart,
         finalizeOrder,
