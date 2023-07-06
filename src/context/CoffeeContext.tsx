@@ -84,7 +84,13 @@ export function CoffeeContextProvider({
 
   function removeCoffeeFromCart(removeCoffee: Coffee) {
     setUserCart((state) =>
-      state.filter((coffee) => coffee.id !== removeCoffee.id)
+      state.map((coffee) => {
+        if (coffee.id === removeCoffee.id) {
+          coffee.quantity = 0;
+          return coffee;
+        }
+        return coffee;
+      })
     );
   }
 

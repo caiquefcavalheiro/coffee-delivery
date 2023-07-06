@@ -11,7 +11,8 @@ import {
 import { Coffee } from "../../../../database/coffees";
 import { useContext } from "react";
 import { CoffeeContext } from "../../../../context/CoffeeContext";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 interface CoffeeCardProps {
   coffee: Coffee;
@@ -20,7 +21,7 @@ interface CoffeeCardProps {
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
   const { title, price, image, content, categories, quantity } = coffee;
 
-  const { addCoffeeToCart, removeCoffeeQuantityFromCart } =
+  const { cartTotal, addCoffeeToCart, removeCoffeeQuantityFromCart } =
     useContext(CoffeeContext);
 
   const imagem = `./src/assets/${image}.png`;
@@ -31,6 +32,16 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
       currency: "BRL",
     })
     .replace("R$", "");
+
+  const navigate = useNavigate();
+
+  function changePage(to: string) {
+    if (cartTotal > 0) {
+      navigate(to);
+    } else {
+      toast.error("É necessário ter ao menos 1 produto no carrinho");
+    }
+  }
 
   return (
     <CoffeeContainer>
@@ -56,11 +67,10 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
             <span>{quantity}</span>
             <Plus size={14} onClick={() => addCoffeeToCart(coffee)} />
           </CoffeeQuantity>
-          <NavLink to="/checkout" title="checkout">
-            <CoffeeCart>
-              <ShoppingCart size={22} />
-            </CoffeeCart>
-          </NavLink>
+
+          <CoffeeCart onClick={() => changePage("/checkout")}>
+            <ShoppingCart size={22} />
+          </CoffeeCart>
         </CoffeeAsideInfo>
       </CoffeeInfo>
     </CoffeeContainer>
