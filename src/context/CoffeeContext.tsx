@@ -1,5 +1,6 @@
 import { ReactNode, createContext, useEffect, useState } from "react";
 import { Coffee, coffees } from "../database/coffees";
+import { toast } from "react-hot-toast";
 
 interface CoffeeContextType {
   userCart: Coffee[];
@@ -29,6 +30,7 @@ export function CoffeeContextProvider({
 
     return coffees;
   });
+
   const cartTotal = userCart.reduce(
     (acc, coffee) => (acc += coffee.quantity),
     0
@@ -56,6 +58,7 @@ export function CoffeeContextProvider({
     } else {
       setUserCart((state) => [...state, newCoffee]);
     }
+    toast.success("Café adicionado ao carrinho");
   }
 
   function removeCoffeeQuantityFromCart(removeCoffee: Coffee) {
@@ -75,11 +78,15 @@ export function CoffeeContextProvider({
         );
       }
     }
+    toast.error("Café removido do carrinho", {
+      style: { background: "#f0e8c9" },
+    });
   }
 
   function finalizeOrder() {
     setUserCart([]);
     localStorage.removeItem("@coffeeDelivery:coffees-state.1.0.0");
+    toast.success("Iniciando preparo do café, obrigado pela preferência!!");
   }
 
   function removeCoffeeFromCart(removeCoffee: Coffee) {
@@ -92,6 +99,9 @@ export function CoffeeContextProvider({
         return coffee;
       })
     );
+    toast.error("Café removido do carrinho", {
+      style: { background: "#f0e8c9" },
+    });
   }
 
   return (
