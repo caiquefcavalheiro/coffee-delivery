@@ -9,13 +9,17 @@ import {
 } from "./styles";
 
 import { Coffee } from "../../../../database/coffees";
+import { useContext } from "react";
+import { CoffeeContext } from "../../../../context/CoffeeContext";
 
 interface CoffeeCardProps {
   coffee: Coffee;
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
-  const { title, price, image, content, categories } = coffee;
+  const { title, price, image, content, categories, quantity } = coffee;
+
+  const { addCoffeeToCart, removeCoffeeFromCart } = useContext(CoffeeContext);
 
   const imagem = `./src/assets/${image}.png`;
 
@@ -43,9 +47,9 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
         </p>
         <CoffeeAsideInfo>
           <CoffeeQuantity>
-            <Minus size={14} />
-            <span>1</span>
-            <Plus size={14} />
+            <Minus size={14} onClick={() => removeCoffeeFromCart(coffee)} />
+            <span>{quantity}</span>
+            <Plus size={14} onClick={() => addCoffeeToCart(coffee)} />
           </CoffeeQuantity>
           <CoffeeCart>
             <ShoppingCart size={22} />
