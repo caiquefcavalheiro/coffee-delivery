@@ -9,65 +9,76 @@ import {
   Trash,
 } from "phosphor-react";
 
+import {
+  CheckoutMainContainer,
+  FormContainer,
+  FormHeader,
+  FormInputRadioContainer,
+  FormInputsContainer,
+  FormMain,
+} from "./styles";
+
 export function Checkout() {
   return (
-    <div>
+    <CheckoutMainContainer>
       <div>
+        <h2>Complete seu pedido</h2>
         <form>
-          <div>
-            <div>
-              <MapPinLine />
-              <p>Endereço de Entrega</p>
-              <p>Informe o endereço onde deseja receber seu pedido</p>
-            </div>
-            <input type="text" placeholder="CEP" />
-            <input type="text" placeholder="Rua" />
-            <div>
-              <input type="text" placeholder="Número" />
-              <input type="text" placeholder="Complemento" />
-              <input type="text" placeholder="Opcional" />
-            </div>
-            <div>
-              <input type="text" placeholder="Bairro" />
-              <input type="text" placeholder="Cidade" />
-              <input type="text" placeholder="UF" />
-            </div>
-            <div>
-              <div>
-                <CurrencyDollar />
-                <p>Pagamento</p>
-                <p>
-                  O pagamento é feito na entrega. Escolha a forma que deseja
-                  pagar
-                </p>
-              </div>
-              <div>
-                <input id="" type="text" />
+          <FormMain>
+            <FormContainer>
+              <FormHeader $iconColor="brand-yellow-dark">
+                <MapPinLine size={22} />
                 <div>
-                  <CreditCard />
+                  <p>Endereço de Entrega</p>
+                  <p>Informe o endereço onde deseja receber seu pedido</p>
+                </div>
+              </FormHeader>
+              <FormInputsContainer>
+                <input type="text" placeholder="CEP" />
+                <input type="text" placeholder="Rua" />
+                <input type="text" placeholder="Número" />
+                <input type="text" placeholder="Complemento" />
+                <input type="text" placeholder="Bairro" />
+                <input type="text" placeholder="Cidade" />
+                <input type="text" placeholder="UF" />
+              </FormInputsContainer>
+            </FormContainer>
+            <FormContainer>
+              <FormHeader $iconColor="brand-purple">
+                <CurrencyDollar size={22} />
+                <div>
+                  <p>Pagamento</p>
+                  <p>
+                    O pagamento é feito na entrega. Escolha a forma que deseja
+                    pagar
+                  </p>
+                </div>
+              </FormHeader>
+              <FormInputRadioContainer>
+                <div>
+                  <input hidden id="" type="text" />
+
+                  <CreditCard size={16} />
                   <label htmlFor="">CARTÃO DE CRÉDITO</label>
                 </div>
-              </div>
-              <div>
-                <input id="" type="text" />
                 <div>
-                  <Money />
+                  <input hidden id="" type="text" />
+
+                  <Money size={16} />
                   <label htmlFor="">CARTÃO DE CRÉDITO</label>
                 </div>
-              </div>
-              <div>
-                <input id="" type="text" />
                 <div>
-                  <Bank />
+                  <input hidden id="" type="text" />
+                  <Bank size={16} />
                   <label htmlFor="">CARTÃO DE CRÉDITO</label>
                 </div>
-              </div>
-            </div>
-          </div>
+              </FormInputRadioContainer>
+            </FormContainer>
+          </FormMain>
         </form>
       </div>
       <div>
-        <h3>Cafés Selecionados</h3>
+        <h2>Cafés Selecionados</h2>
         <div>
           <div>
             <img src="" alt="" />
@@ -102,6 +113,6 @@ export function Checkout() {
           <button>CONFIRMAR PEDIDO</button>
         </div>
       </div>
-    </div>
+    </CheckoutMainContainer>
   );
 }
