@@ -20,6 +20,8 @@ export const FormContainer = styled.div`
     color: ${(props) => props.theme["base-label"]};
     border: 1px solid ${(props) => props.theme["base-button"]};
     border-radius: 4px;
+    appearance: "none";
+    margin: 0;
   }
 `;
 

@@ -130,6 +130,10 @@ export const CartInfo = styled.div`
     font-weight: bold;
   }
 
+  button:disabled {
+    cursor: not-allowed;
+  }
+
   button {
     background: ${(props) => props.theme["brand-yellow"]};
     color: ${(props) => props.theme["base-white"]};

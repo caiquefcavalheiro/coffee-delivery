@@ -71,12 +71,18 @@ export function CartInfoContainer() {
                   <CoffeeInfo>
                     <CoffeeQuantity>
                       <Minus
+                        type="button"
                         onClick={() => removeCoffeeQuantityFromCart(coffee)}
                       />
                       <span>{quantity}</span>
-                      <Plus onClick={() => addCoffeeToCart(coffee)} />
+                      <Plus
+                        type="button"
+                        onClick={() => addCoffeeToCart(coffee)}
+                      />
                     </CoffeeQuantity>
-                    <button onClick={() => removeCoffeeFromCart(coffee)}>
+                    <button
+                      type="button"
+                      onClick={() => removeCoffeeFromCart(coffee)}>
                       <Trash />
                       <p>Remover</p>
                     </button>
@@ -100,7 +106,7 @@ export function CartInfoContainer() {
             <p>Total</p>
             <span>{cartPriceAndDeliveryToBRL}</span>
           </div>
-          <button>CONFIRMAR PEDIDO</button>
+          <button type="submit">CONFIRMAR PEDIDO</button>
         </CartInfo>
       </AsideContainer>
     </div>

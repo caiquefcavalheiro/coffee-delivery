@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useEffect, useState } from "react";
+import {
+  ReactNode,
+  createContext,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 import { Coffee, coffees } from "../database/coffees";
 import { toast } from "react-hot-toast";
 
@@ -36,12 +42,18 @@ export function CoffeeContextProvider({
     0
   );
 
+  const finalizeOrder = useCallback(() => {
+    setUserCart(coffees);
+    localStorage.removeItem("@coffeeDelivery:coffees-state.1.0.0");
+    toast.success("Iniciando preparo do café, obrigado pela preferência!!");
+  }, []);
+
   useEffect(() => {
     localStorage.setItem(
       "@coffeeDelivery:coffees-state.1.0.0",
       JSON.stringify(userCart)
     );
-  }, [userCart]);
+  }, [userCart, finalizeOrder]);
 
   function addCoffeeToCart(newCoffee: Coffee) {
     const findCoffee = userCart.find((coffee) => coffee.id === newCoffee.id);
@@ -81,12 +93,6 @@ export function CoffeeContextProvider({
     toast.error("Café removido do carrinho", {
       style: { background: "#f0e8c9" },
     });
-  }
-
-  function finalizeOrder() {
-    setUserCart([]);
-    localStorage.removeItem("@coffeeDelivery:coffees-state.1.0.0");
-    toast.success("Iniciando preparo do café, obrigado pela preferência!!");
   }
 
   function removeCoffeeFromCart(removeCoffee: Coffee) {
