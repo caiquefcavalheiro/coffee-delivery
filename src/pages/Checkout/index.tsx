@@ -11,14 +11,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-hot-toast";
 
 const purchaseFormSchema = zod.object({
-  zipCode: zod.string().min(8, "Digite os 8 digitos do CEP").max(8),
-  street: zod.string(),
-  number: zod.number(),
+  zipCode: zod
+    .string()
+    .min(8, "Digite os 8 números do CEP")
+    .max(8, "Digite os 8 números do CEP"),
+  street: zod.string().nonempty("Campo obrigatório"),
+  number: zod.number().min(1, "Digite um número").default(0),
   complement: zod.string().optional(),
-  district: zod.string(),
-  city: zod.string(),
-  state: zod.string(),
-  paymentMethod: zod.string(),
+  district: zod.string().nonempty("Campo obrigatório"),
+  city: zod.string().nonempty("Campo obrigatório"),
+  state: zod.string().min(1, "Obrigatório").max(2, "Máximo 2 caracteres"),
+  paymentMethod: zod.enum(["credit", "debit", "money"]),
 });
 
 export type purchaseFormData = zod.infer<typeof purchaseFormSchema>;
@@ -37,9 +40,9 @@ export function Checkout() {
     formState: { errors },
   } = purchaseForm;
 
-  function handlePurchase(data: purchaseFormData) {
+  function handlePurchase() {
     finalizeOrder();
-    // reset();
+    reset();
     navigate("/success");
   }
 

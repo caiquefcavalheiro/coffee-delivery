@@ -22,6 +22,7 @@ export const FormContainer = styled.div`
     border-radius: 4px;
     appearance: "none";
     margin: 0;
+    width: -webkit-fill-available;
   }
 `;
 
@@ -64,32 +65,32 @@ export const FormInputsContainer = styled.div`
     "i3 i4 i4"
     "i5 i6 i7";
 
-  input:nth-child(1) {
+  div:nth-child(1) {
     grid-area: i1;
   }
 
-  input:nth-child(2) {
+  div:nth-child(2) {
     grid-area: i2;
   }
 
-  input:nth-child(3) {
+  div:nth-child(3) {
     grid-area: i3;
   }
 
-  input:nth-child(4) {
+  div:nth-child(4) {
     grid-area: i4;
   }
 
-  input:nth-child(5) {
+  div:nth-child(5) {
     grid-area: i5;
   }
 
-  input:nth-child(6) {
+  div:nth-child(6) {
     width: 275px;
     grid-area: i6;
   }
 
-  input:nth-child(7) {
+  div:nth-child(7) {
     width: 48px;
     grid-area: i7;
   }
@@ -98,6 +99,7 @@ export const FormInputsContainer = styled.div`
 export const FormInputRadioContainer = styled.div`
   display: flex;
   gap: 0.75rem;
+  position: relative;
 
   label {
     display: flex;
@@ -135,5 +137,13 @@ export const FormInputRadioContainer = styled.div`
 
   svg {
     color: ${(props) => props.theme["brand-purple"]};
+  }
+
+  span {
+    position: absolute;
+    bottom: -17px;
+    left: 2px;
+    font-size: 0.7rem;
+    color: ${(props) => props.theme["brand-red-light"]};
   }
 `;

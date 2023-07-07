@@ -15,4 +15,6 @@ export const defaultTheme = {
   "brand-yellow-dark": "#c47e16",
   "brand-yellow": "#dbac2b",
   "brand-yellow-light": "#f0e8c9",
+  "brand-red-light": "#AB222E",
+  "brand-red-dark": "#7A1921",
 };

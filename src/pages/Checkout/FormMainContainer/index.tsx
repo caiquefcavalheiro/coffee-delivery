@@ -14,9 +14,13 @@ import {
   FormMain,
 } from "./styles";
 import { useFormContext } from "react-hook-form";
+import { InputContainer } from "../../../components/Input";
 
 export function FormMainContainer() {
-  const { register } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <div>
@@ -32,47 +36,23 @@ export function FormMainContainer() {
               </div>
             </FormHeader>
             <FormInputsContainer>
-              <input
-                id="zipCode"
-                type="text"
-                placeholder="CEP"
-                {...register("zipCode")}
-              />
-              <input
-                id="street"
-                type="text"
-                placeholder="Rua"
-                {...register("street")}
-              />
-              <input
-                id="number"
-                type="number"
+              <InputContainer name="zipCode" placeholder="CEP" />
+              <InputContainer name="street" placeholder="Rua" />
+              <InputContainer
+                name="number"
                 placeholder="Número"
-                {...register("number", { valueAsNumber: true })}
+                isNumber={true}
+                type="number"
+                min="1"
               />
-              <input
-                id="complement"
-                type="text"
-                placeholder="Complemento"
-                {...register("complement")}
-              />
-              <input
-                id="district"
-                type="text"
-                placeholder="Bairro"
-                {...register("district")}
-              />
-              <input
-                id="city"
-                type="text"
-                placeholder="Cidade"
-                {...register("city")}
-              />
-              <input
-                id="state"
-                type="text"
+              <InputContainer name="complement" placeholder="Complemento" />
+              <InputContainer name="district" placeholder="Bairro" />
+              <InputContainer name="city" placeholder="Cidade" />
+              <InputContainer
+                name="state"
                 placeholder="UF"
-                {...register("state")}
+                minLength={2}
+                maxLength={2}
               />
             </FormInputsContainer>
           </FormContainer>
@@ -92,6 +72,7 @@ export function FormMainContainer() {
                 type="radio"
                 hidden
                 id="credit"
+                value="credit"
                 {...register("paymentMethod")}
               />
               <div>
@@ -104,6 +85,7 @@ export function FormMainContainer() {
                 type="radio"
                 hidden
                 id="debit"
+                value="debit"
                 {...register("paymentMethod")}
               />
               <div>
@@ -116,6 +98,7 @@ export function FormMainContainer() {
                 type="radio"
                 hidden
                 id="money"
+                value="money"
                 {...register("paymentMethod")}
               />
               <div>
@@ -124,6 +107,9 @@ export function FormMainContainer() {
                   DINHEIRO
                 </label>
               </div>
+              {!!errors["paymentMethod"] && (
+                <span>Selecione um método de pagamento</span>
+              )}
             </FormInputRadioContainer>
           </FormContainer>
         </FormMain>
