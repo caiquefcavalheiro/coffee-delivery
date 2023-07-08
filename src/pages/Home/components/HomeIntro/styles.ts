@@ -6,6 +6,7 @@ export const HomeIntroContainer = styled.div`
   justify-items: end;
   grid-template-columns: 1fr;
   gap: 3.5rem;
+  padding: 2rem 0;
 
   img {
     display: none;

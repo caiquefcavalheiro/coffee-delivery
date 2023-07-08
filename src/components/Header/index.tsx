@@ -5,7 +5,7 @@ import {
   RightIconContainer,
 } from "./styles";
 
-import coffeeLogo from "../../assets/logo.png";
+import coffeeLogo from "../../../public/assets/logo.png";
 import { MapPin, ShoppingCart } from "phosphor-react";
 import { useContext } from "react";
 import { CoffeeContext } from "../../context/CoffeeContext";

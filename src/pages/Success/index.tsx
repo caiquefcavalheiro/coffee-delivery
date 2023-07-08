@@ -7,7 +7,7 @@ import {
   SuccessInfoContainer,
 } from "./styles";
 
-import illustration from "../../assets/Illustration.png";
+import illustration from "../../../public/assets/Illustration.png";
 import { purchaseFormData } from "../Checkout";
 
 export function Success() {

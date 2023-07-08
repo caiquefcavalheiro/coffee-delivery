@@ -56,7 +56,7 @@ export function CartInfoContainer() {
           {coffeesWithQuantityGreaterThanZero.map((coffee) => {
             const { id, image, price, quantity, title } = coffee;
 
-            const imagem = `./src/assets/${image}.png`;
+            const imagem = `./assets/${image}.png`;
 
             const priceConvert = price.toLocaleString("pt-BR", {
               style: "currency",

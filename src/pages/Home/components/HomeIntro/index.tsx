@@ -1,4 +1,4 @@
-import coffee from "../../../../assets/principalCoffee.png";
+import coffee from "../../../../../public/assets/principalCoffee.png";
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 import {
   AsideLeft,
