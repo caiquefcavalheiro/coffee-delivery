@@ -24,7 +24,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
   const { cartTotal, addCoffeeToCart, removeCoffeeQuantityFromCart } =
     useContext(CoffeeContext);
 
-  const imagem = `./src/assets/${image}.png`;
+  const imagem = `/src/assets/${image}.png`;
 
   const priceConvert = price
     .toLocaleString("pt-BR", {
