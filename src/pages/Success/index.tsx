@@ -39,7 +39,10 @@ export function Success() {
                 <p>
                   Entrega em <span>{addressAndPayment.street || ""}</span>
                 </p>
-                <p>Farrapos - Porto Alegre, RS</p>
+                <p>
+                  {addressAndPayment.city || ""} -{" "}
+                  {addressAndPayment.state.toUpperCase() || ""}
+                </p>
               </div>
             </SuccessInfo>
             <SuccessInfo>

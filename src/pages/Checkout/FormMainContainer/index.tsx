@@ -36,7 +36,7 @@ export function FormMainContainer() {
               </div>
             </FormHeader>
             <FormInputsContainer>
-              <InputContainer name="zipCode" placeholder="CEP" />
+              <InputContainer name="zipCode" placeholder="CEP" maxLength={8} />
               <InputContainer name="street" placeholder="Rua" />
               <InputContainer
                 name="number"
