@@ -40,7 +40,12 @@ export function Checkout() {
     formState: { errors },
   } = purchaseForm;
 
-  function handlePurchase() {
+  function handlePurchase(data: purchaseFormData) {
+    localStorage.setItem(
+      "@coffeeDelivery:address-info.1.0.0",
+      JSON.stringify(data)
+    );
+
     finalizeOrder();
     reset();
     navigate("/success");

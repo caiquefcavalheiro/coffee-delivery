@@ -4,9 +4,21 @@ export const HomeIntroContainer = styled.div`
   display: grid;
   align-items: center;
   justify-items: end;
-  grid-template-columns: 1fr 476px;
+  grid-template-columns: 1fr;
   gap: 3.5rem;
-  padding: 5.75rem 0;
+
+  img {
+    display: none;
+  }
+
+  @media (min-width: 826px) {
+    grid-template-columns: 1fr 476px;
+    padding: 5.75rem 0;
+
+    img {
+      display: block;
+    }
+  }
 `;
 
 export const AsideLeft = styled.div`

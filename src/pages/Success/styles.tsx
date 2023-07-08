@@ -2,12 +2,20 @@ import styled from "styled-components";
 
 export const SuccessContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 5rem;
   gap: 6.4rem;
 
   img {
-    object-fit: contain;
+    display: none;
+  }
+
+  @media (min-width: 1140px) {
+    justify-content: space-between;
+    img {
+      display: block;
+      object-fit: contain;
+    }
   }
 `;
 

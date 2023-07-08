@@ -6,6 +6,7 @@ export const AsideContainer = styled.div`
   padding: 2.5rem;
   background: ${(props) => props.theme["base-card"]};
   border-radius: 6px;
+  max-width: 460px;
 `;
 
 export const CartCoffeeContainer = styled.div`
@@ -16,13 +17,23 @@ export const CartCoffeeContainer = styled.div`
 
 export const CartCoffee = styled.div`
   display: flex;
-  gap: 1.5rem;
+  justify-content: center;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid ${(props) => props.theme["base-button"]};
 
   img {
-    width: 64px;
-    height: 64px;
+    display: none;
+  }
+
+  @media (min-width: 480px) {
+    justify-content: left;
+    gap: 1.5rem;
+
+    img {
+      display: block;
+      width: 64px;
+      height: 64px;
+    }
   }
 
   p {

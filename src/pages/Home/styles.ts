@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const CoffeeList = styled.div`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
   margin-bottom: 10rem;

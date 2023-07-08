@@ -60,10 +60,13 @@ export const FormInputsContainer = styled.div`
   gap: 1rem;
 
   grid-template-areas:
-    "i1 .  ."
-    "i2 i2 i2"
-    "i3 i4 i4"
-    "i5 i6 i7";
+    "i1"
+    "i2"
+    "i3"
+    "i4"
+    "i5"
+    "i6"
+    "i7";
 
   div:nth-child(1) {
     grid-area: i1;
@@ -86,20 +89,59 @@ export const FormInputsContainer = styled.div`
   }
 
   div:nth-child(6) {
-    width: 275px;
     grid-area: i6;
   }
 
   div:nth-child(7) {
-    width: 48px;
     grid-area: i7;
+  }
+
+  @media (min-width: 460px) {
+    grid-template-areas:
+      "i1"
+      "i2"
+      "i3"
+      "i4"
+      "i5"
+      "i6"
+      "i7";
+
+    div:nth-child(7) {
+      width: auto;
+    }
+
+    div:nth-child(6) {
+      width: auto;
+    }
+  }
+
+  @media (min-width: 700px) {
+    grid-template-areas:
+      "i1 .  ."
+      "i2 i2 i2"
+      "i3 i4 i4"
+      "i5 i6 i7";
+
+    div:nth-child(7) {
+      width: 48px;
+    }
   }
 `;
 
 export const FormInputRadioContainer = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 0.75rem;
   position: relative;
+
+  @media (min-width: 700px) {
+    flex-direction: row;
+
+    & div {
+      margin: auto;
+      width: auto;
+    }
+  }
 
   label {
     display: flex;
@@ -116,6 +158,8 @@ export const FormInputRadioContainer = styled.div`
   }
 
   & div {
+    width: 200px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;

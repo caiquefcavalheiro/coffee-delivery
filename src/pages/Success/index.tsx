@@ -8,8 +8,22 @@ import {
 } from "./styles";
 
 import illustration from "../../assets/Illustration.png";
+import { purchaseFormData } from "../Checkout";
 
 export function Success() {
+  const getAddressInfoAndPaymentMethod =
+    localStorage.getItem("@coffeeDelivery:address-info.1.0.0") || "";
+
+  const addressAndPayment: purchaseFormData = JSON.parse(
+    getAddressInfoAndPaymentMethod
+  );
+
+  const paymentMethod = {
+    debit: "Cartão de Débito",
+    credit: "Cartão de Crédito",
+    money: "Dinheiro",
+  };
+
   return (
     <SuccessContainer>
       <FirstContainer>
@@ -23,7 +37,7 @@ export function Success() {
               </SuccessIcon>
               <div>
                 <p>
-                  Entrega em <span>Rua João Daniel Martinelli, 102</span>
+                  Entrega em <span>{addressAndPayment.street || ""}</span>
                 </p>
                 <p>Farrapos - Porto Alegre, RS</p>
               </div>
@@ -46,7 +60,9 @@ export function Success() {
               <div>
                 <p>Pagamento na entrega</p>
                 <p>
-                  <span>Cartão de Crédito</span>
+                  <span>
+                    {paymentMethod[addressAndPayment.paymentMethod] || ""}
+                  </span>
                 </p>
               </div>
             </SuccessInfo>
